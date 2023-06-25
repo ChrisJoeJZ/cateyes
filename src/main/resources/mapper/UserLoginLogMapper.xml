@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cateye.chris.mapper.UserLoginLogMapper">
+    <insert id="addLoginLog" keyProperty="log_id" useGeneratedKeys="true">
+        insert into userloginlog
+            (user_id,log_time,account_type)
+        values
+            ( #{userLoginLog.user_id},#{userLoginLog.log_time},#{userLoginLog.account_type} )
+    </insert>
+</mapper>

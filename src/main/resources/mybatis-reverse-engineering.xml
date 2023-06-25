@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--  自己需要修改的地方都会加上 CHRIS  -->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!--  是否去除自动生成代码中的注释  -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- CHRIS  JDBC配置  也可将数据库地址换为centos虚拟机地址-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/cateyes_data?useUnicode=true&amp;characterEncoding=utf8"
+                        userId="root"
+                        password="123456">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+        <!--  CHRIS 逆向生成的EntityBean实体类的存放位置  按项目在自己电脑的实际存放位置修改-->
+        <javaModelGenerator targetPackage="cateye.chris.bean.po"
+                            targetProject="E:\ChrisMaoYan\cateyes\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--  CHRIS 逆向生成的Mapper映射文件的存放位置  -->
+        <sqlMapGenerator targetPackage="cateye.chris.controller"
+                         targetProject="E:\ChrisMaoYan\cateyes\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- CHRIS 逆向生成的Repository数据访问层接口的存放位置  -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cateye.chris.mapper"
+                             targetProject="E:\ChrisMaoYan\cateyes\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--  逆向生成的数据表和实体类之间的映射关系  -->
+        <table tableName="user_info" domainObjectName="UserInfo" />
+        <table tableName="brand" domainObjectName="Brand" />
+        <table tableName="category" domainObjectName="Category" />
+        <table tableName="cate_film_rel" domainObjectName="CateFilmRel" />
+        <table tableName="cinema" domainObjectName="Cinema" />
+        <table tableName="cinema_film_rel" domainObjectName="CinemaFilmRel" />
+        <table tableName="comment" domainObjectName="Comment" />
+        <table tableName="film" domainObjectName="Film" />
+        <table tableName="film_flregion_rel" domainObjectName="FilmFlregionRel" />
+        <table tableName="film_region" domainObjectName="FilmRegion" />
+        <table tableName="regions" domainObjectName="Regions" />
+        <table tableName="region_cma_rel" domainObjectName="RegionCmaRel" />
+        <table tableName="special_hall" domainObjectName="SpecialHall" />
+        <table tableName="spical_cinema_rel" domainObjectName="SpicalCinemaRel" />
+        <table tableName="type" domainObjectName="Type" />
+        <table tableName="type_film_rel" domainObjectName="TypeFilmRel" />
+        <table tableName="watch_days" domainObjectName="WatchDays" />
+        <table tableName="watch_times" domainObjectName="WatchTimes" />
+        <table tableName="orders" domainObjectName="Orders" />
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,21 @@
+#定位于java程序  测试环境  使用到的配置信息
+#当切换到测试环境的时候，让javaweb程序，运行在测试配置文件指定的端口上
+server:
+  port: 8011
+
+spring:
+  # 数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/cateyes_data?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    # 是否开启驼峰映射，默认是true
+    map-underscore-to-camel-case: true
+    # 开启查询日志
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
